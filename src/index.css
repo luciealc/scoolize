@@ -14,3 +14,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@font-face {
+  font-family: Marianne;
+  src: url(../src/assets/fonts/Marianne/fontes_web/Marianne-Regular.woff);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Marianne;
+  src: url(../src/assets/fonts/Marianne/fontes_web/Marianne-Light.woff);
+  font-weight: lighter ;
+}
+@font-face {
+  font-family: Marianne;
+  src: url(../src/assets/fonts/Marianne/fontes_web/Marianne-Bold.woff);
+  font-weight: bold ;
+}
+
