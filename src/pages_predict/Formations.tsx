@@ -17,11 +17,11 @@ const FormationsPage: React.FunctionComponent<IFormationsPageProps> = (props) =>
                 </div>
                 <div className="flex flex-wrap -mx-2">
                     <div className="w-full lg:w-1/2 px-2 mb-4">
-                        {/* Place the cards component here */}
+                        <div className="w-[191px] h-[34px] text-black text-[32px] font-medium-marianne leading-tight">Proposition</div>
                         <CardFormationPage />
                     </div>
                     <div className="w-full lg:w-1/2 px-2">
-                        {/* Place the map component here */}
+                        <div className="w-[191px] h-[34px] text-black text-[32px] font-medium-marianne leading-tight">Carte</div>
                         <MapFormationPage />
                     </div>
                 </div>
