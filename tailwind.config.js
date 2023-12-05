@@ -11,7 +11,12 @@ module.exports = {
       "white": "#FFFFFF",
       "black": "#000000",
       "light-grey": "#EEEEEE",
-      "black-ish": "#161616"
+      "black-ish": "#161616",
+      "lightlight-red": "#FEE8FC",
+      "stone": "#6E445A",
+      "lightlight-blue": "#E8EDFF",
+      "sky": "#0063CB",
+      "superlight-grey": "#EEEEEE"
     },
     fontFamily: {
       'marianne': ['Marianne']

@@ -4,7 +4,7 @@ export interface IMapFormationPageProps {};
 
 const MapFormationPage: React.FunctionComponent<IMapFormationPageProps>=(props)=>{
     return (<div>
-        <h1>Map formation</h1>
+        <h1>Map formation component</h1>
     </div>)
 }
 
