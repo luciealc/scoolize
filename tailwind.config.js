@@ -4,10 +4,14 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      darkred: '#910000',
-      lightred: "#FF1212",
-      darkblue: "#000091",
-      lightblue: "#1212FF"
+      "dark-red": '#910000',
+      "light-red": "#FF1212",
+      "dark-blue": "#000091",
+      "light-blue": "#1212FF",
+      "white": "#FFFFFF",
+      "black": "#000000",
+      "light-grey": "#EEEEEE",
+      "black-ish": "#161616"
     },
     fontFamily: {
       'marianne': ['Marianne']
