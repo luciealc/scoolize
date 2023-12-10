@@ -8,8 +8,8 @@ const CardFormationPage: React.FunctionComponent<ICardFormationPageProps> = (pro
             <div className="p-2.5">
                 <span className="text-xs font-marianne-normal text-stone bg-lightlight-red rounded-full px-2 py-0.5">Public</span>
                 <div className='my-[5px]'>
-                   <h3 className="text-black text-[22px] font-marianne p-2.5 leading-tight">Université de Corte (20)</h3>
-                    <p className="text-black text-sm font-normal-marianne px-2.5 pb-2.5 leading-tight">Licence - Licence - Licence - Licence - Licence</p> 
+                    <h3 className="text-black text-[22px] font-marianne p-2.5 leading-tight">Université de Corte (20)</h3>
+                    <p className="text-black text-sm font-normal-marianne px-2.5 pb-2.5 leading-tight">Licence - Licence - Licence - Licence - Licence</p>
                 </div>
                 <div className="flex items-center p-[10px] my-[5px]">
                     <p className="text-sky font-medium-marianne bg-lightlight-blue px-1.5 rounded text-xs mr-4">PLACES DISPONIBLES : 25</p>
