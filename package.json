@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
+    "@types/mapbox-gl": "^2.7.19",
     "@types/node": "^16.18.66",
     "@types/react": "^18.2.41",
     "@types/react-dom": "^18.2.17",
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@types/googlemaps": "^3.43.3",
     "tailwindcss": "^3.3.5"
   }
 }
