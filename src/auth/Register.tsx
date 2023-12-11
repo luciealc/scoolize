@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
-import createAccount from './hooks/createAccount';
+import React, { useState } from "react";
+import createAccount from "./hooks/createAccount";
 
-type Props = {
-};
+type Props = {};
 
 const RegisterPage: React.FC<Props> = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [year, setYear] = useState("");
+  const [bac, setBac] = useState("");
+  const [fname, setFname] = useState("");
+  const [adress, setAdress] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-        createAccount(email,password)
+      createAccount(email, password, name, bac, year, fname, adress);
     } catch (error: any) {
       setError(error.message);
     }
@@ -25,7 +29,35 @@ const RegisterPage: React.FC<Props> = () => {
         {error && <p className="text-sm text-red-500">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="email" className="text-sm font-medium">Email</label>
+            <label htmlFor="lname" className="text-sm font-medium">
+              Nom
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-2 mt-1 border rounded-md"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="fname" className="text-sm font-medium">
+              Prénom
+            </label>
+            <input
+              type="text"
+              id="fname"
+              value={fname}
+              onChange={(e) => setFname(e.target.value)}
+              className="w-full p-2 mt-1 border rounded-md"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="text-sm font-medium">
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -36,7 +68,22 @@ const RegisterPage: React.FC<Props> = () => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="text-sm font-medium">Mot de passe</label>
+            <label htmlFor="adress" className="text-sm font-medium">
+              Mot de passe
+            </label>
+            <input
+              type="text"
+              id=""
+              value={adress}
+              onChange={(e) => setAdress(e.target.value)}
+              className="w-full p-2 mt-1 border rounded-md"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="pwd" className="text-sm font-medium">
+              Mot de passe
+            </label>
             <input
               type="password"
               id="password"
@@ -46,7 +93,13 @@ const RegisterPage: React.FC<Props> = () => {
               required
             />
           </div>
-          <button type="submit" className="w-full p-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">S'inscrire</button>
+
+          <button
+            type="submit"
+            className="text-white bg-dark-blue hover:bg-light-blue px-4 py-2 text-base font-medium-marianne"
+          >
+            S'inscrire
+          </button>
         </form>
       </div>
     </div>
