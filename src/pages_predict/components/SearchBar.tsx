@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
+import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg'
 
-export interface ISearchBarPageProps { };
+export interface ISearchBarPageProps {};
 
 const SearchBarPage: React.FunctionComponent<ISearchBarPageProps> = (props) => {
-
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // Implement your search logic here
         console.log(`Searching for: ${searchTerm}`);
     };
 
@@ -16,7 +15,7 @@ const SearchBarPage: React.FunctionComponent<ISearchBarPageProps> = (props) => {
         setSearchTerm(event.target.value);
     };
 
-    return (<div>
+    return (
         <div className="w-full md:w-auto">
             <form onSubmit={handleSearch} className="flex items-center border-b-2 border-dark-blue">
                 <input
@@ -28,13 +27,15 @@ const SearchBarPage: React.FunctionComponent<ISearchBarPageProps> = (props) => {
                 />
                 <button
                     type="submit"
-                    className="bg-blue-600 text-white px-4 py-2 bg-dark-blue hover:bg-light-blue font-marianne rounded-tr text-base font-normal"
+                    className="flex items-center bg-blue-600 text-white px-4 py-2 bg-dark-blue hover:bg-light-blue font-marianne rounded-tr text-base"
                 >
+                    {/* Include the SVG right before the button text */}
+                    <SearchIcon className="mr-2" /> {/* Adjust the size and margins as needed */}
                     Rechercher
                 </button>
             </form>
         </div>
-    </div>)
+    );
 }
 
-export default SearchBarPage
+export default SearchBarPage;
