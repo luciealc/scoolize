@@ -1,35 +1,3 @@
-// import React from 'react';
-// import MainContentPage from './components/MainContent';
-// import SearchBarPage from './components/SearchBar';
-// import FormationFilterPage from './components/FormationFilter';
-
-// export interface IFormationsPageProps {};
-
-// const FormationsPage: React.FunctionComponent<IFormationsPageProps>=(props)=>{
-//     return (<div>
-//         <MainContentPage>
-//             <h1>Formation</h1>
-//             <div className='main-div'>
-//                 <div className='col1'>
-//                     <div className='row1'>
-//                         <SearchBarPage />
-//                     </div>
-//                     <div className='row2'></div>
-//                 </div>
-//                 <div className='col2'>
-//                     <div className='row1'>
-//                         <FormationFilterPage />
-//                     </div>
-//                     <div className='row2'></div>
-//                 </div>
-//             </div>
-//         </MainContentPage>
-//     </div>)
-// }
-
-// export default FormationsPage
-
-
 import React from 'react';
 import MainContentPage from './components/MainContent';
 import SearchBarPage from './components/SearchBar';
