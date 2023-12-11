@@ -12,7 +12,7 @@ const FormationFilterPage: React.FunctionComponent<IFormationFilterPageProps> = 
 
   return (<div className='w-full md:w-auto'>
     <div className="flex items-center justify-between border-b-2 border-dark-blue pb-2 w-[523px] w-100%">
-      <span className="text-lg font-marianne text-black font-normal leading-tight">Filtres</span>
+      <span className="text-lg font-normal-marianne text-black leading-tight">Filtres</span>
       <button
         onClick={handleFilterClick}
         className="p-2 rounded-full hover:bg-gray-200"
