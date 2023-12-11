@@ -1,5 +1,5 @@
 import React from "react";
-import { IChatMessagesProps } from "../../interface/chatMessages";
+import { IChatMessagesProps } from "../interface/chatMessages";
 
 const ChatMessages: React.FunctionComponent<IChatMessagesProps> = (props) => {
   const { text, uid } = props.message;

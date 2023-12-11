@@ -9,7 +9,7 @@ import {
   where,
 } from "firebase/firestore";
 import { auth, firestore } from "../auth/firebaseConfig"; // Adjust based on your project structure
-import ChatMessages from "./components/ChatMessages";
+import ChatMessages from "../components/ChatMessages";
 
 export interface IMessageriePageProps {}
 
