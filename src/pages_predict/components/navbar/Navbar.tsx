@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PredictLogo from "../../../assets/logos/predict.webp"
+import logOut from '../../../auth/hooks/logOut';
 
 export interface INavbarPageProps { }
 
@@ -45,7 +46,7 @@ const NavbarPage: React.FunctionComponent<INavbarPageProps> = (props) => {
                 </ul>
             </nav>
             <div className="w-[135px] h-[38px] px-4 py-2 bg-dark-red hover:bg-light-red justify-center items-center gap-2.5 inline-flex mb-[40px] self-end mr-[15px]">
-                <button className="text-white text-base font-normal font-marianne">Deconnexion</button>
+                <button className="text-white text-base font-normal font-marianne" onClick={(e)=>logOut()}>Deconnexion</button>
             </div>
         </div>
     );
