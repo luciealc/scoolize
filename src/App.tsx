@@ -64,7 +64,7 @@ function App() {
         )}
 
         {/* Redirige vers la page de connexion si l'utilisateur n'est pas authentifié */}
-        <Route path="*" element={!user ? <Navigate to="/login" /> : <Navigate to="/" />} />
+        <Route path="/" element={<AccueilPage />} />
       </Routes>
  
       {/* <Routes>
