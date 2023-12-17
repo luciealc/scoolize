@@ -31,6 +31,10 @@ function App() {
       } else {
         // User is signed out
         setUser(null);
+
+        navigate("/login"); // Redirect to login page
+
+
       }
     });
     return () => unsubscribe();
@@ -49,7 +53,12 @@ function App() {
             <Route path="/voeux" element={<VoeuxPage />} />
             <Route path="/messagerie" element={<MessageriePage />} />
             <Route path="/profil" element={<ProfilPage />} />
+
             <Route path="*" element={!user && <Navigate to="/login" />} />
+
+
+
+
           </Routes>
         </>
       );
@@ -111,6 +120,16 @@ function App() {
   console.log(process.env.OPENAI_API_KEY);
   return (
     <>
+
+      {/* // <Routes>
+      //   <Route path="/" element={<AccueilPage />} />
+      //   <Route path="/formations" element={<FormationsPage />} />
+      //   <Route path="/orientation" element={<OrientationsPage />} />
+      //   <Route path="/voeux" element={<VoeuxPage />} />
+      //   <Route path="/messagerie" element={<MessageriePage />} />
+      //   <Route path="/profil" element={<ProfilPage />} />
+      // </Routes>):(<LoginPage />) */}
+
       {user && conditionalRender()}
       <Routes>
         <Route
@@ -122,6 +141,10 @@ function App() {
           element={user ? <Navigate to="/" /> : <RegisterPage />}
         />
       </Routes>
+
+      {/* Les autres routes de l'application */}
+
+
     </>
   );
 }
