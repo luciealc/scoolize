@@ -7,16 +7,17 @@ export interface IConseilVideoPageProps {
 const ConseilVideoPage: React.FunctionComponent<IConseilVideoPageProps> = ({ videoUrls }) => {
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4">Conseils vidéo</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <h2 className="text-[27px] font-medium-marianne mb-4">Conseils vidéo</h2>
+
+            <div className="grid grid-cols-2 gap-4 h-[445px] overflow-y-auto scrollbar-hide space-x-4">
                 {videoUrls.map((url, index) => (
-                    <div key={index} className="mb-4 space-y-2">
+                    <div key={index} className="min-w-[25%] shrink-0">
                         <iframe 
-                            className="w-full aspect-video"
+                            className="w-full h-auto aspect-video"
                             src={url}
-                            title={`YouTube video player ${index}`}
+                            title={`Video ${index}`}
                             frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                         ></iframe>
                     </div>
