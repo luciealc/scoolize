@@ -20,4 +20,4 @@ let app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 
-export { auth, firestore }; // Removed 'database' unless you define it
+export { app, auth, firestore }; // Removed 'database' unless you define it

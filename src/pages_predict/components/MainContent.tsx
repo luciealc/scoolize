@@ -1,15 +1,13 @@
-import React from 'react';
+import React from "react";
 
 export interface IMainContentPageProps {
   children?: React.ReactNode;
 }
 
-const MainContentPage: React.FunctionComponent<IMainContentPageProps> = ({ children }) => {
-  return (
-    <div className="ml-[321px] p-4">
-      {children}
-    </div>
-  );
+const MainContentPage: React.FunctionComponent<IMainContentPageProps> = ({
+  children,
+}) => {
+  return <div className="ml-[321px] h-screen p-4">{children}</div>;
 };
 
 export default MainContentPage;

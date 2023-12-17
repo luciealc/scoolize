@@ -1,3 +1,9 @@
+import { FieldValue } from "firebase/firestore";
+
 export interface IChatMessagesProps {
-  message: { createdAt: string; mid: string; text: string; uid: string };
+  createdAt: FieldValue;
+  mid: string | null | undefined;
+  text: string | null | undefined;
+  uid: string | null | undefined;
+  sid: string;
 }
