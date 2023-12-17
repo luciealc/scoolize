@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, firestore } from "../firebaseConfig";
-import { collection, doc, setDoc } from "firebase/firestore";
+import { collection, doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { IChatMessagesProps } from "../../interface/chatMessages";
 const createAccount = async (
   email: string,
   password: string,
@@ -25,19 +26,25 @@ const createAccount = async (
 
     // set account  doc
     const account = {
-      useruid: userUid,
+      uid: userUid,
       nom: name + " " + fname,
       email: email,
       role: "student",
-
+      conv: [auth.currentUser?.uid],
       bornYear: bornYear,
       adress: adress,
       bac: bac,
     };
     await setDoc(doc(collection(firestore, "users"), userUid), { account });
-
+    const messages: IChatMessagesProps = {
+      createdAt: serverTimestamp(),
+      mid: auth.currentUser?.uid,
+      text: "Je suis un bot",
+      uid: "WVVmFBBEACwKV1rVkuqv",
+      sid: "WVVmFBBEACwKV1rVkuqv",
+    };
     console.log("Account created and user document added to Firestore");
-    // Additional logic after successful account creation and Firestore document addition
+    setDoc(doc(collection(firestore, "messages"), userUid), messages);
   } catch (error) {
     console.error("Error creating account: ", error);
     // Error handling

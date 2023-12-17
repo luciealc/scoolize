@@ -49,6 +49,7 @@ function App() {
             <Route path="/voeux" element={<VoeuxPage />} />
             <Route path="/messagerie" element={<MessageriePage />} />
             <Route path="/profil" element={<ProfilPage />} />
+            <Route path="*" element={!user && <Navigate to="/login" />} />
           </Routes>
         </>
       );
@@ -107,7 +108,7 @@ function App() {
     // Clean up the subscription on unmount
     return () => unsubscribe();
   }, []);
-
+  console.log(process.env.OPENAI_API_KEY);
   return (
     <>
       {user && conditionalRender()}
