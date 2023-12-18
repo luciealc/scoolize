@@ -13,21 +13,21 @@ function App() {
   const [role, setRole] = useState<string>("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
-      if (currentUser) {
-        // User is signed in
-        setUser(currentUser);
-        // Optionally fetch additional user data here
-      } else {
-        // User is signed out
-        setUser(null);
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+  //     if (currentUser) {
+  //       // User is signed in
+  //       setUser(currentUser);
+  //       // Optionally fetch additional user data here
+  //     } else {
+  //       // User is signed out
+  //       setUser(null);
 
-        // navigate("/login"); // Redirect to login page
-      }
-    });
-    return () => unsubscribe();
-  }, [navigate]);
+  //       // navigate("/login"); // Redirect to login page
+  //     }
+  //   });
+  //   return () => unsubscribe();
+  // }, [navigate]);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -36,6 +36,7 @@ function App() {
           const docSnap = await getDoc(doc(firestore, "users", user.uid));
           if (docSnap.exists()) {
             const data = docSnap.data();
+            setUser(data);
 
             setRole(data.role);
             console.log("Document data:", docSnap.data());
@@ -49,8 +50,6 @@ function App() {
         fetchData()
           // make sure to catch any error
           .catch(console.error);
-
-        setUser(user);
       } else {
         // No user is signed in.
         setUser(null);
@@ -59,12 +58,12 @@ function App() {
 
     // Clean up the subscription on unmount
     return () => unsubscribe();
-  }, []);
+  }, [navigate]);
   return (
     <>
       {user ? (
         role === "student" ? (
-          <StudentRoutes />
+          <StudentRoutes user={user} />
         ) : (
           <SchoolRoutes />
         )

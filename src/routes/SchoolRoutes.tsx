@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import CandidaturesPage from "../page_prepare/Candidatures";
 import GestionFormationPage from "../page_prepare/GestionFormation";
 import MessageriePage from "../page_prepare/Messagerie";
@@ -17,6 +17,7 @@ const SchoolRoutes = () => {
         <Route path="/candidatures" element={<CandidaturesPage />} />
         <Route path="/gestion-formations" element={<GestionFormationPage />} />
         <Route path="/messagerie-prepare" element={<MessageriePage />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );

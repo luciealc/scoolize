@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-export interface IStudentMenuProps {}
+export interface ISchoolMenuProps {}
 
-const StudentMenu: React.FunctionComponent<IStudentMenuProps> = (props) => {
+const SchoolMenu: React.FunctionComponent<ISchoolMenuProps> = (props) => {
   const location = useLocation();
 
   const isActive = (path: string) => {
@@ -58,4 +58,4 @@ const StudentMenu: React.FunctionComponent<IStudentMenuProps> = (props) => {
   );
 };
 
-export default StudentMenu;
+export default SchoolMenu;

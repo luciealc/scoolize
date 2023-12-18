@@ -6,12 +6,16 @@ import OrientationsPage from "../pages_predict/Orientation";
 import VoeuxPage from "../pages_predict/Voeux";
 import MessageriePage from "../pages_predict/Messagerie";
 import ProfilPage from "../pages_predict/Profil";
-import NavbarPage from "../pages_predict/components/navbar/Navbar";
 
-const StudentRoutes = () => {
+import Navbar from "../components/NavBar/NavBar";
+import { IUser } from "../interface/user";
+
+const StudentRoutes: React.FC<IUser> = (props) => {
+  console.log(props.user);
+
   return (
     <>
-      <NavbarPage />
+      <Navbar role={props.user.role} />
       <Routes>
         <Route path="/" element={<AccueilPage />} />
         <Route path="/formations" element={<FormationsPage />} />
