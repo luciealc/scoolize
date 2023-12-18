@@ -4,14 +4,16 @@ import CandidaturesPage from "../page_prepare/Candidatures";
 import GestionFormationPage from "../page_prepare/GestionFormation";
 import MessageriePage from "../page_prepare/Messagerie";
 import AccueilPage from "../page_prepare/Accueil";
-import NavbarPage from "../page_prepare/components/navbar/Navbar";
+
+import Navbar from "../components/NavBar/NavBar";
+import { IUser } from "../interface/user";
 
 // ... import other school pages
 
-const SchoolRoutes = () => {
+const SchoolRoutes: React.FC<IUser> = (props) => {
   return (
     <>
-      <NavbarPage />
+      <Navbar role={props.user.role} />
       <Routes>
         <Route path="/" element={<AccueilPage />} />
         <Route path="/candidatures" element={<CandidaturesPage />} />

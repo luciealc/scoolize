@@ -65,7 +65,7 @@ function App() {
         role === "student" ? (
           <StudentRoutes user={user} />
         ) : (
-          <SchoolRoutes />
+          <SchoolRoutes user={user} />
         )
       ) : (
         <PublicRoutes />
