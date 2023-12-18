@@ -78,16 +78,7 @@ const MessageriePage: React.FunctionComponent<IMessageriePageProps> = (
         <div className="flex row mt-9  ">
           <div className="w-1/3">
             <h3>Messagerie</h3>
-            {messages && (
-              <button
-                className="w-[236px] h-20 px-3 py-[30px] bg-dark-blue shadow justify-center items-center gap-2.5 inline-flex"
-                onClick={(e) => getConv(messages[0])}
-              >
-                <div className="text-white text-[27px] font-bold font-['Marianne'] leading-tight">
-                  IA Conversation
-                </div>
-              </button>
-            )}
+
             <button onClick={() => createChat("XsOHJvKYz8bAIgIt3Ix7Rgc1Uhm2")}>
               New Conv
             </button>
