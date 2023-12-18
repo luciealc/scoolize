@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MainContentPage from "./components/MainContent";
+import MainContentPage from "../components/MainContent";
 import {
   collection,
   query,

@@ -1,7 +1,10 @@
 export interface Iusers {
-  id: number;
-  name: string;
-  year: number;
+  uid: number;
+  nom: string;
+  bornYear: number;
   role: string;
   bac: string;
+  email: string;
+  conv: Array<string>;
+  adresse: string;
 }
