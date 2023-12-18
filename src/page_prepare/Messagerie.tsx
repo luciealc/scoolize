@@ -29,14 +29,19 @@ const MessageriePage: React.FunctionComponent<IMessageriePageProps> = (
     const getAllConv = async () => {
       if (auth.currentUser?.uid) {
         try {
-          const docRef = doc(firestore, "users", auth.currentUser?.uid);
-          const docSnap = await getDoc(docRef);
+          const docRef = query(
+            collection(firestore, "messages"),
+            where("sid", "==", auth.currentUser.uid)
+          );
+          const docSnap = await getDocs(docRef);
 
-          if (docSnap.exists()) {
-            const data = docSnap.data();
-            console.log(data.account.conv);
-
-            setMessages(data.account.conv);
+          if (docSnap) {
+            let arr: any = [];
+            docSnap.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              arr.push(doc.data());
+            });
+            setMessages(arr);
           } else {
             // docSnap.data() will be undefined in this case
             console.log("No such document!");

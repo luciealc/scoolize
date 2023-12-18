@@ -35,7 +35,7 @@ const createAccount = async (
       adress: adress,
       bac: bac,
     };
-    await setDoc(doc(collection(firestore, "users"), userUid), { account });
+    await setDoc(doc(collection(firestore, "users"), userUid), account);
     const messages: IChatMessagesProps = {
       createdAt: serverTimestamp(),
       mid: auth.currentUser?.uid,

@@ -34,9 +34,9 @@ const MessageriePage: React.FunctionComponent<IMessageriePageProps> = (
 
           if (docSnap.exists()) {
             const data = docSnap.data();
-            console.log(data.account.conv);
+            console.log(data.conv);
 
-            setMessages(data.account.conv);
+            setMessages(data.conv);
           } else {
             // docSnap.data() will be undefined in this case
             console.log("No such document!");

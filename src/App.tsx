@@ -32,9 +32,7 @@ function App() {
         // User is signed out
         setUser(null);
 
-        navigate("/login"); // Redirect to login page
-
-
+        // navigate("/login"); // Redirect to login page
       }
     });
     return () => unsubscribe();
@@ -53,12 +51,6 @@ function App() {
             <Route path="/voeux" element={<VoeuxPage />} />
             <Route path="/messagerie" element={<MessageriePage />} />
             <Route path="/profil" element={<ProfilPage />} />
-
-            <Route path="*" element={!user && <Navigate to="/login" />} />
-
-
-
-
           </Routes>
         </>
       );
@@ -79,7 +71,6 @@ function App() {
               path="/messagerie-prepare"
               element={<MessageriePagePrepare />}
             />
-            <Route path="*" element={!user && <Navigate to="/login" />} />
           </Routes>
         </>
       );
@@ -92,9 +83,8 @@ function App() {
           const docSnap = await getDoc(doc(firestore, "users", user.uid));
           if (docSnap.exists()) {
             const data = docSnap.data();
-            console.log(data.account.role);
 
-            setRole(data.account.role);
+            setRole(data.role);
             console.log("Document data:", docSnap.data());
           } else {
             // docSnap.data() will be undefined in this case
@@ -120,7 +110,6 @@ function App() {
   console.log(process.env.OPENAI_API_KEY);
   return (
     <>
-
       {/* // <Routes>
       //   <Route path="/" element={<AccueilPage />} />
       //   <Route path="/formations" element={<FormationsPage />} />
@@ -143,8 +132,6 @@ function App() {
       </Routes>
 
       {/* Les autres routes de l'application */}
-
-
     </>
   );
 }
