@@ -7,7 +7,7 @@ import { doc, getDoc } from "firebase/firestore";
 import StudentRoutes from "./routes/StudentsRoutes";
 import SchoolRoutes from "./routes/SchoolRoutes";
 import PublicRoutes from "./routes/PublicRoutes";
-
+import AmbasRoutes from "./routes/AmbasRoutes";
 function App() {
   const [user, setUser] = useState<any | null>(null);
   const [role, setRole] = useState<string>("");
@@ -39,7 +39,6 @@ function App() {
             setUser(data);
 
             setRole(data.role);
-            console.log("Document data:", docSnap.data());
           } else {
             // docSnap.data() will be undefined in this case
             console.log("No such document!");
@@ -67,7 +66,7 @@ function App() {
       case "school":
         return <SchoolRoutes user={user} />;
       case "ambas":
-        return "Hi";
+        return <AmbasRoutes user={user} />;
       default:
         return <PublicRoutes />;
     }
