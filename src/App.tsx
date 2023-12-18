@@ -51,6 +51,7 @@ function App() {
           // make sure to catch any error
           .catch(console.error);
       } else {
+        setRole("");
         // No user is signed in.
         setUser(null);
       }
@@ -59,19 +60,19 @@ function App() {
     // Clean up the subscription on unmount
     return () => unsubscribe();
   }, [navigate]);
-  return (
-    <>
-      {user ? (
-        role === "student" ? (
-          <StudentRoutes user={user} />
-        ) : (
-          <SchoolRoutes user={user} />
-        )
-      ) : (
-        <PublicRoutes />
-      )}
-    </>
-  );
+  const getRender = () => {
+    switch (role) {
+      case "student":
+        return <StudentRoutes user={user} />;
+      case "school":
+        return <SchoolRoutes user={user} />;
+      case "ambas":
+        return "Hi";
+      default:
+        return <PublicRoutes />;
+    }
+  };
+  return <>{getRender()}</>;
 }
 
 export default App;
