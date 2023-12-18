@@ -29,14 +29,19 @@ const MessageriePage: React.FunctionComponent<IMessageriePageProps> = (
     const getAllConv = async () => {
       if (auth.currentUser?.uid) {
         try {
-          const docRef = doc(firestore, "users", auth.currentUser?.uid);
-          const docSnap = await getDoc(docRef);
+          const docRef = query(
+            collection(firestore, "messages"),
+            where("sid", "==", auth.currentUser.uid)
+          );
+          const docSnap = await getDocs(docRef);
 
-          if (docSnap.exists()) {
-            const data = docSnap.data();
-            console.log(data.account.conv);
-
-            setMessages(data.account.conv);
+          if (docSnap) {
+            let arr: any = [];
+            docSnap.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              arr.push(doc.data());
+            });
+            setMessages(arr);
           } else {
             // docSnap.data() will be undefined in this case
             console.log("No such document!");
@@ -73,16 +78,7 @@ const MessageriePage: React.FunctionComponent<IMessageriePageProps> = (
         <div className="flex row mt-9  ">
           <div className="w-1/3">
             <h3>Messagerie</h3>
-            {messages && (
-              <button
-                className="w-[236px] h-20 px-3 py-[30px] bg-dark-blue shadow justify-center items-center gap-2.5 inline-flex"
-                onClick={(e) => getConv(messages[0])}
-              >
-                <div className="text-white text-[27px] font-bold font-['Marianne'] leading-tight">
-                  IA Conversation
-                </div>
-              </button>
-            )}
+
             <button onClick={() => createChat("XsOHJvKYz8bAIgIt3Ix7Rgc1Uhm2")}>
               New Conv
             </button>

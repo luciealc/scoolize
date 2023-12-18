@@ -4,6 +4,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { auth, firestore } from "../auth/firebaseConfig";
 import { IChat } from "./ChatMessages";
 import openai from "../auth/hooks/chatGptCompletion";
+import { log } from "console";
 const MessageInput: React.FC<IChat> = (props) => {
   const [message, setMessage] = useState("");
 
@@ -23,28 +24,28 @@ const MessageInput: React.FC<IChat> = (props) => {
       .catch((err) => console.log(err.message));
     setMessage("");
 
-    if (props.message.sid === "WVVmFBBEACwKV1rVkuqv") {
+    if (props.message.sid === "bn97htoA2ZIx2kHI8hqp") {
       const prompt = message;
 
       try {
-        const response = await openai.createChatCompletion({
-          model: "gpt-4.5-turbo",
-          messages: [
-            { role: "system", content: "You are a helpful assistant." },
-            { role: "user", content: prompt },
-          ],
-        });
-
-        const botMessage = response.data.choices[0].message.content;
-
-        // Send the bot's response to Firestore
-        await addDoc(messagesRef, {
-          text: botMessage,
-          createdAt: serverTimestamp(),
-          uid: "WVVmFBBEACwKV1rVkuqv", // Replace with actual bot's UID
-          mid: props.message.mid,
-          sid: "WVVmFBBEACwKV1rVkuqv", // Replace with actual bot's SID
-        });
+        // const response = await openai.chat.completions.create({
+        //   model: "gpt-3.5-turbo",
+        //   messages: [
+        //     { role: "system", content: "You are a helpful assistant." },
+        //     { role: "user", content: prompt },
+        //   ],
+        // });
+        // console.log(response);
+        // const botMessage = response.data.choices[0].message.content;
+        // console.log(response);
+        // // Send the bot's   response to Firestore
+        // await addDoc(messagesRef, {
+        //   text: botMessage,
+        //   createdAt: serverTimestamp(),
+        //   uid: "WVVmFBBEACwKV1rVkuqv", // Replace with actual bot's UID
+        //   mid: props.message.mid,
+        //   sid: "WVVmFBBEACwKV1rVkuqv", // Replace with actual bot's SID
+        // });
       } catch (error) {
         console.error("Error in sending message:", error);
       }

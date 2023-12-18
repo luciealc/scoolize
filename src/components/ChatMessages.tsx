@@ -14,7 +14,7 @@ const ChatMessages: React.FunctionComponent<IChat> = (props) => {
         const userRef = doc(firestore, "users", uid);
         const snapshot = await getDoc(userRef);
         const data = snapshot.data();
-        if (data) setName(data.account.nom);
+        if (data) setName(data.nom);
       };
       handleSearch();
     }

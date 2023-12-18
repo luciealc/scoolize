@@ -34,9 +34,9 @@ const MessageriePage: React.FunctionComponent<IMessageriePageProps> = (
 
           if (docSnap.exists()) {
             const data = docSnap.data();
-            console.log(data.account.conv);
+            console.log(data.conv);
 
-            setMessages(data.account.conv);
+            setMessages(data.conv);
           } else {
             // docSnap.data() will be undefined in this case
             console.log("No such document!");
@@ -73,7 +73,7 @@ const MessageriePage: React.FunctionComponent<IMessageriePageProps> = (
         <div className="flex row mt-9  ">
           <div className="w-1/3">
             <h3>Messagerie</h3>
-            {messages && (
+            {/* {messages && (
               <button
                 className="w-[236px] h-20 px-3 py-[30px] bg-dark-blue shadow justify-center items-center gap-2.5 inline-flex"
                 onClick={(e) => getConv(messages[0])}
@@ -82,10 +82,7 @@ const MessageriePage: React.FunctionComponent<IMessageriePageProps> = (
                   IA Conversation
                 </div>
               </button>
-            )}
-            <button onClick={() => createChat("XsOHJvKYz8bAIgIt3Ix7Rgc1Uhm2")}>
-              New Conv
-            </button>
+            )} */}
             {messages &&
               messages.slice(1).map((element: string) => {
                 return (
