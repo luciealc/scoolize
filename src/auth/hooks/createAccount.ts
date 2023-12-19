@@ -42,6 +42,7 @@ const createAccount = async (
       text: "Je suis un bot",
       uid: "WVVmFBBEACwKV1rVkuqv",
       sid: "WVVmFBBEACwKV1rVkuqv",
+      sName: "ChatBot",
     };
     console.log("Account created and user document added to Firestore");
     setDoc(doc(collection(firestore, "messages"), userUid), messages);

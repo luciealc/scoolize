@@ -6,4 +6,5 @@ export interface IChatMessagesProps {
   text: string | null | undefined;
   uid: string | null | undefined;
   sid: string;
+  sName: string;
 }

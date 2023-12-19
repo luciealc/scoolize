@@ -3,33 +3,29 @@ import {
   doc,
   getDoc,
   getDocs,
+  limit,
+  orderBy,
   query,
   where,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { firestore } from "../../../auth/firebaseConfig";
-import { Iusers } from "../../../interface/users";
+
 import { IChat } from "../../../components/ChatMessages";
 import { IChatMessagesProps } from "../../../interface/chatMessages";
+import { useChat } from "../../../context/ChatContext";
 
 const CardChat: React.FunctionComponent<IChat> = (props) => {
-  const [sName, setSName] = useState<string>();
-  useEffect(() => {
-    const getSchoolName = async () => {
-      const schoolName = doc(firestore, "users", props.message.sid);
-      const schoolNameSnap = await getDoc(schoolName);
+  const { setConv } = useChat(); // Access the setConv function from the context
 
-      if (schoolNameSnap) {
-        const data: Iusers = schoolNameSnap.data() as Iusers;
-        setSName(data.nom);
-      }
-    };
-
-    getSchoolName();
-  }, []);
   const handleClick = async () => {
     const convRef = collection(firestore, "messages");
-    const convQuery = query(convRef, where("mid", "==", props.message.mid));
+    const convQuery = query(
+      convRef,
+      where("mid", "==", props.message.mid),
+      orderBy("createdAt"),
+      limit(25)
+    );
     const convSnap = await getDocs(convQuery);
     let messages: IChatMessagesProps[] = [];
     if (convSnap) {
@@ -37,16 +33,18 @@ const CardChat: React.FunctionComponent<IChat> = (props) => {
         const data = snap.data() as IChatMessagesProps;
         messages.push(data);
       });
+
+      setConv(messages); // Update the conversation in the context
     }
   };
   return (
     <>
       <button
         className="w-[236px] h-20 px-3 py-[30px] bg-dark-blue shadow justify-center items-center gap-2.5 inline-flex"
-        // onClick={(e) => getConv(props.nom)}
+        onClick={(e) => handleClick()}
       >
         <div className="text-white text-[27px] font-bold font-['Marianne'] leading-tight">
-          {sName}
+          {props.message.sName}
         </div>
       </button>
     </>

@@ -18,7 +18,6 @@ export const useChat = () => {
 
 export const ChatProvider: React.FC<any> = ({ children }) => {
   const [conv, setConv] = useState<Array<IChatMessagesProps>>([]);
-
   return (
     <ChatContext.Provider value={{ conv, setConv }}>
       {children}

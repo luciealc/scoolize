@@ -60,8 +60,8 @@ const MessageriePage: React.FunctionComponent<IMessageriePageProps> = (
     const res = await getDocs(convQuery);
     const a: Array<IChatMessagesProps | undefined> = [];
     res.forEach((doc) => {
-      const { createdAt, mid, sid, uid, text } = doc.data();
-      a.push({ createdAt, mid, sid, uid, text });
+      const { createdAt, mid, sid, uid, text, sName } = doc.data();
+      a.push({ createdAt, mid, sid, uid, text, sName });
     });
     setConv(a as Array<IChatMessagesProps>);
   };
