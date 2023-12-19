@@ -6,7 +6,7 @@ import MessageriePage from "../page_prepare/Messagerie";
 import AccueilPage from "../page_prepare/Accueil";
 
 import Navbar from "../components/NavBar/NavBar";
-import Ambas from "../screens/Ambas/Ambase";
+import Ambas from "../screens/AmbasPrepare/Ambas";
 
 // ... import other school pages
 
