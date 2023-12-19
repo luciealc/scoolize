@@ -6,7 +6,7 @@ import MessageriePage from "../page_prepare/Messagerie";
 import AccueilPage from "../page_prepare/Accueil";
 
 import Navbar from "../components/NavBar/NavBar";
-import { IUser } from "../interface/user";
+import Ambas from "../screens/Ambas/Ambase";
 
 // ... import other school pages
 
@@ -19,6 +19,7 @@ const SchoolRoutes: React.FC = (props) => {
         <Route path="/candidatures" element={<CandidaturesPage />} />
         <Route path="/gestion-formations" element={<GestionFormationPage />} />
         <Route path="/messagerie-prepare" element={<MessageriePage />} />
+        <Route path="/ambas" element={<Ambas />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

@@ -26,42 +26,12 @@ const SchoolMenu: React.FunctionComponent<ISchoolMenuProps> = (props) => {
       </li>
       <li className="pt-[5px] pb-2.5 justify-start items-start gap-2.5 inline-flex">
         <Link
-          to="/candidatures"
+          to="/messagerie"
           className={`text-black text-2xl font-medium font-marianne-medium leading-tight ${linkClass(
-            "/candidatures"
-          )}`}
-        >
-          Candidatures
-        </Link>
-      </li>
-      <li className="pt-[5px] pb-2.5 justify-start items-start gap-2.5 inline-flex">
-        <Link
-          to="/gestion-formations"
-          className={`text-black text-2xl font-medium font-marianne-medium leading-tight ${linkClass(
-            "/gestion-formations"
-          )}`}
-        >
-          Formations
-        </Link>
-      </li>
-      <li className="pt-[5px] pb-2.5 justify-start items-start gap-2.5 inline-flex">
-        <Link
-          to="/messagerie-prepare"
-          className={`text-black text-2xl font-medium font-marianne-medium leading-tight ${linkClass(
-            "/messagerie-prepare"
+            "/messagerie"
           )}`}
         >
           Messagerie
-        </Link>
-      </li>
-      <li className="pt-[5px] pb-2.5 justify-start items-start gap-2.5 inline-flex">
-        <Link
-          to="/ambas"
-          className={`text-black text-2xl font-medium font-marianne-medium leading-tight ${linkClass(
-            "/ambas"
-          )}`}
-        >
-          Ambassadeurs
         </Link>
       </li>
     </ul>

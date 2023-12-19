@@ -1,5 +1,5 @@
 export interface Iusers {
-  uid: number;
+  uid: string;
   nom: string;
   bornYear: number;
   role: string;
@@ -7,4 +7,5 @@ export interface Iusers {
   email: string;
   conv: Array<string>;
   adresse: string;
+  sid?: string;
 }
