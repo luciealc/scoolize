@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MainContentPage from "../../components/MainContent";
-import {
-  collection,
-  query,
-  orderBy,
-  limit,
-  getDocs,
-  where,
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../../auth/firebaseConfig"; // Adjust based on your project structure
 import Conversation from "./Conversation";
 import { IChatMessagesProps } from "../../interface/chatMessages";
