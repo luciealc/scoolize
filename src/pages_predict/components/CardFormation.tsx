@@ -2,6 +2,7 @@ import React from "react";
 
 export interface ICardFormationPageProps {
   data: Formation;
+  onButtonClick: () => void;
 }
 
 interface Formation {
@@ -18,7 +19,7 @@ interface Formation {
 }
 
 const CardFormationPage: React.FunctionComponent<ICardFormationPageProps> = ({
-  data,
+  data, onButtonClick
 }) => {
   return (
     <div>
@@ -44,7 +45,7 @@ const CardFormationPage: React.FunctionComponent<ICardFormationPageProps> = ({
             </p>
           </div>
           <div className="p-[10px] my-[5px]">
-            <button className="text-white bg-dark-blue hover:bg-light-blue px-4 py-2 text-base font-medium-marianne">
+            <button onClick={onButtonClick} className="text-white bg-dark-blue hover:bg-light-blue px-4 py-2 text-base font-medium-marianne">
               Voir la formation
             </button>
           </div>
