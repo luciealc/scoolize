@@ -31,7 +31,7 @@ const CardFormationPage: React.FunctionComponent<ICardFormationPageProps> = ({
             <h3 className="text-black text-[22px] font-marianne p-2.5 leading-tight">
               {data.ecole}
             </h3>
-            <p className="text-black text-sm font-normal-marianne px-2.5 pb-2.5 leading-tight">
+            <p className="text-black text-sg font-bold font-marianne px-2.5 pb-2.5 leading-tight">
               {data.formation}
             </p>
           </div>
