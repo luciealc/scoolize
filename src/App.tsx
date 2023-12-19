@@ -8,6 +8,7 @@ import StudentRoutes from "./routes/StudentsRoutes";
 import SchoolRoutes from "./routes/SchoolRoutes";
 import PublicRoutes from "./routes/PublicRoutes";
 import AmbasRoutes from "./routes/AmbasRoutes";
+import { ChatProvider } from "./context/ChatContext";
 function App() {
   const [user, setUser] = useState<any | null>(null);
   const [role, setRole] = useState<string>("");
@@ -71,7 +72,11 @@ function App() {
         return <PublicRoutes />;
     }
   };
-  return <>{getRender()}</>;
+  return (
+    <>
+      <ChatProvider>{getRender()}</ChatProvider>
+    </>
+  );
 }
 
 export default App;

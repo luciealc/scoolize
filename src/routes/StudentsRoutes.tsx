@@ -13,8 +13,6 @@ import { IUser } from "../interface/user";
 import Messagerie from "../screens/Messagerie/Messagerie";
 
 const StudentRoutes: React.FC<IUser> = (props) => {
-  console.log(props.user);
-
   return (
     <>
       <Navbar role={props.user.role} />

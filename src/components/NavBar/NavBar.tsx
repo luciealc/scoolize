@@ -11,8 +11,6 @@ export interface INavbarProps {
 }
 
 const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
-  console.log(props.role);
-
   const getMenu = () => {
     switch (props.role) {
       case "student":
