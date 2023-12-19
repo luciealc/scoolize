@@ -19,18 +19,20 @@ interface Formation {
     resume: string;
     taux_acces: string;
     tags: string[];
+    sid: string
 }
 
-export interface IFormationsPageProps {}
+export interface IFormationsPageProps { }
 
 const FormationsPage: React.FunctionComponent<IFormationsPageProps> = (
     props
 ) => {
     const [formations, setFormations] = useState<Formation[]>([]);
     const [isFormationPopupOpen, setIsFormationPopupOpen] = useState(false);
-    // const [selectedSchoolId, setSelectedSchoolId] = useState<string | null>(null);
+    const [selectedFormation, setSelectedFormation] = useState<Formation | null>(null);
 
-    const openFormationPopup = () => {
+    const openFormationPopup = (formation: Formation) => {
+        setSelectedFormation(formation);
         setIsFormationPopupOpen(true);
     };
 
@@ -69,6 +71,7 @@ const FormationsPage: React.FunctionComponent<IFormationsPageProps> = (
                     resume: data.resume,
                     taux_acces: data.taux_acces,
                     tags: data.tags,
+                    sid: data.sid
                 };
             });
             setFormations(formationsList);
@@ -96,7 +99,7 @@ const FormationsPage: React.FunctionComponent<IFormationsPageProps> = (
                                 <CardFormationPage
                                     key={formation.id}
                                     data={formation}
-                                    onButtonClick={openFormationPopup}
+                                    onButtonClick={() => openFormationPopup(formation)}
                                 />
                             ))}
                         </div>
@@ -110,12 +113,8 @@ const FormationsPage: React.FunctionComponent<IFormationsPageProps> = (
                 </div>
             </div>
             {isFormationPopupOpen && (
-                <FicheFormationPopupPage onClose={closeFormationPopup}>
-                    <div>
-                        <h1>Hello hello</h1>
-                        {/* <h1>{formations.ecole}</h1> */}
-                        <button className="text-white bg-dark-blue hover:bg-light-blue px-4 py-2 text-base font-medium-marianne">Commencer une conversation</button>
-                    </div>
+                <FicheFormationPopupPage onClose={closeFormationPopup} selectedFormation={selectedFormation}>
+                    <div></div>
                 </FicheFormationPopupPage>
             )}
         </MainContentPage>
