@@ -37,6 +37,7 @@ const CardChat: React.FunctionComponent<IChat> = (props) => {
       setConv(messages); // Update the conversation in the context
     }
   };
+
   return (
     <>
       <button

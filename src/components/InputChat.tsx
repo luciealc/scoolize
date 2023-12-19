@@ -19,6 +19,7 @@ const MessageInput: React.FC<IChat> = (props) => {
       uid: auth.currentUser?.uid,
       mid: props.message.mid,
       sid: props.message.sid,
+      sName: props.message.sName,
     })
       .then((rep) => console.log(rep))
       .catch((err) => console.log(err.message));
