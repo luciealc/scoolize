@@ -5,14 +5,12 @@ import PrepareLogo from "../../assets/logos/prepare.webp";
 import logOut from "../../auth/hooks/logOut";
 import SchoolMenu from "./menu/SchoolMenu";
 import StudentMenu from "./menu/StudentMenu";
+import { useAuth } from "../../context/AuthContext";
 
-export interface INavbarProps {
-  role: string;
-}
-
-const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
+const Navbar: React.FunctionComponent = (props) => {
+  const { user } = useAuth();
   const getMenu = () => {
-    switch (props.role) {
+    switch (user?.role) {
       case "student":
         return <StudentMenu />;
       case "school":
@@ -25,8 +23,8 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
         <div className="p-2.5 flex justify-center mt-[51px] mb-[50px]">
           <Link to="/">
             <img
-              src={props.role === "student" ? PredictLogo : PrepareLogo}
-              alt={props.role === "student" ? "PredictLogo" : "PrepareLogo"}
+              src={user?.role === "student" ? PredictLogo : PrepareLogo}
+              alt={user?.role === "student" ? "PredictLogo" : "PrepareLogo"}
               className="h-[73px] w-[272px]"
             />
           </Link>

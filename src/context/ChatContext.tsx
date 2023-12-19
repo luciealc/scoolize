@@ -29,20 +29,22 @@ export const ChatProvider: React.FC<any> = ({ children }) => {
   const messagesRef = collection(firestore, "messages");
 
   useEffect(() => {
-    const queryMessages = query(
-      messagesRef,
-      where("mid", "==", conv[0].mid),
-      orderBy("createdAt")
-    );
-    const unsuscribe = onSnapshot(queryMessages, (snapshot) => {
-      let messages: any = [];
-      snapshot.forEach((doc) => {
-        messages.push({ ...doc.data(), id: doc.id });
+    if (conv[0]) {
+      const queryMessages = query(
+        messagesRef,
+        where("mid", "==", conv[0].mid),
+        orderBy("createdAt")
+      );
+      const unsuscribe = onSnapshot(queryMessages, (snapshot) => {
+        let messages: any = [];
+        snapshot.forEach((doc) => {
+          messages.push({ ...doc.data(), id: doc.id });
+        });
+        setConv(messages);
       });
-      setConv(messages);
-    });
-    console.log("he");
-    return () => unsuscribe();
+      console.log("he");
+      return () => unsuscribe();
+    }
   }, []);
   return (
     <ChatContext.Provider value={{ conv, setConv }}>

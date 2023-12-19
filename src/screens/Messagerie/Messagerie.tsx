@@ -7,13 +7,13 @@ import { IChatMessagesProps } from "../../interface/chatMessages";
 import CardChat from "./components/CardChat";
 import { useChat } from "../../context/ChatContext";
 import createChat from "../../functions/CreateChat";
+import { useAuth } from "../../context/AuthContext";
 
-export interface IMessagerieProps {
-  conv: Array<string>;
-}
+export interface IMessagerieProps {}
 
 const Messagerie: React.FunctionComponent<IMessagerieProps> = (props) => {
-  const { conv, setConv } = useChat();
+  const { conv } = useChat();
+  const { user } = useAuth();
   const [error, setError] = useState<any>();
   const [fm, setFm] = useState<Array<IChatMessagesProps>>([]);
 
@@ -22,18 +22,20 @@ const Messagerie: React.FunctionComponent<IMessagerieProps> = (props) => {
   }, []);
   const getFm = async () => {
     try {
-      const promises = props.conv.map(async (e) => {
-        const convRef = doc(firestore, "messages", e);
-        const convSnap = await getDoc(convRef);
-        return convSnap.exists()
-          ? (convSnap.data() as IChatMessagesProps)
-          : null;
-      });
+      if (user?.conv) {
+        const promises = user?.conv.map(async (e) => {
+          const convRef = doc(firestore, "messages", e);
+          const convSnap = await getDoc(convRef);
+          return convSnap.exists()
+            ? (convSnap.data() as IChatMessagesProps)
+            : null;
+        });
 
-      const results = await Promise.all(promises);
-      setFm(
-        results.filter((item): item is IChatMessagesProps => item !== null)
-      );
+        const results = await Promise.all(promises);
+        setFm(
+          results.filter((item): item is IChatMessagesProps => item !== null)
+        );
+      }
     } catch (error) {
       setError(error);
     }

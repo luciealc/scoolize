@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { auth, firestore } from "../auth/firebaseConfig";
 import { IChat } from "./ChatMessages";
-import openai from "../auth/hooks/chatGptCompletion";
-import { log } from "console";
+
 const MessageInput: React.FC<IChat> = (props) => {
   const [message, setMessage] = useState("");
 

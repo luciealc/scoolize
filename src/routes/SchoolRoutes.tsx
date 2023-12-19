@@ -10,10 +10,10 @@ import { IUser } from "../interface/user";
 
 // ... import other school pages
 
-const SchoolRoutes: React.FC<IUser> = (props) => {
+const SchoolRoutes: React.FC = (props) => {
   return (
     <>
-      <Navbar role={props.user.role} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<AccueilPage />} />
         <Route path="/candidatures" element={<CandidaturesPage />} />

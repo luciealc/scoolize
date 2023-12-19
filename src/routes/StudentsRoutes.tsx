@@ -8,23 +8,19 @@ import VoeuxPage from "../pages_predict/Voeux";
 import ProfilPage from "../pages_predict/Profil";
 
 import Navbar from "../components/NavBar/NavBar";
-import { IUser } from "../interface/user";
 
 import Messagerie from "../screens/Messagerie/Messagerie";
 
-const StudentRoutes: React.FC<IUser> = (props) => {
+const StudentRoutes: React.FC = (props) => {
   return (
     <>
-      <Navbar role={props.user.role} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<AccueilPage />} />
         <Route path="/formations" element={<FormationsPage />} />
         <Route path="/orientation" element={<OrientationsPage />} />
         <Route path="/voeux" element={<VoeuxPage />} />
-        <Route
-          path="/messagerie"
-          element={<Messagerie conv={props.user.conv} />}
-        />
+        <Route path="/messagerie" element={<Messagerie />} />
         <Route path="/profil" element={<ProfilPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
