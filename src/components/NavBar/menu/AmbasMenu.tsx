@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-export interface ISchoolMenuProps {}
+export interface IAmbasMenuProps {}
 
-const SchoolMenu: React.FunctionComponent<ISchoolMenuProps> = (props) => {
+const AmbasMenu: React.FunctionComponent<IAmbasMenuProps> = (props) => {
   const location = useLocation();
 
   const isActive = (path: string) => {
@@ -38,4 +38,4 @@ const SchoolMenu: React.FunctionComponent<ISchoolMenuProps> = (props) => {
   );
 };
 
-export default SchoolMenu;
+export default AmbasMenu;

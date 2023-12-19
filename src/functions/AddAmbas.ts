@@ -10,6 +10,8 @@ import { auth, firestore } from "../auth/firebaseConfig";
 import { Iusers } from "../interface/users";
 
 const addAmbas = async (mail: string) => {
+  console.log(mail);
+
   const ambasQuery = query(
     collection(firestore, "users"),
     where("email", "==", mail)

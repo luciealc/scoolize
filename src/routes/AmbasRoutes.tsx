@@ -1,14 +1,19 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import AccueilPage from "../pages_predict/Accueil";
 import Messagerie from "../screens/Messagerie/Messagerie";
+import Navbar from "../components/NavBar/NavBar";
 
 const AmbasRoutes: React.FC = (props) => {
   return (
-    <Routes>
-      <Route path={"/"} element={<AccueilPage />} />
-      <Route path={"/message"} element={<Messagerie />} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path={"/"} element={<AccueilPage />} />
+        <Route path={"/messagerie"} element={<Messagerie />} />
+        <Route path="*" element={<Navigate to={"/"} />} />
+      </Routes>
+    </>
   );
 };
 

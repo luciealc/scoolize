@@ -6,6 +6,7 @@ import logOut from "../../auth/hooks/logOut";
 import SchoolMenu from "./menu/SchoolMenu";
 import StudentMenu from "./menu/StudentMenu";
 import { useAuth } from "../../context/AuthContext";
+import AmbasMenu from "./menu/AmbasMenu";
 
 const Navbar: React.FunctionComponent = (props) => {
   const { user } = useAuth();
@@ -15,6 +16,8 @@ const Navbar: React.FunctionComponent = (props) => {
         return <StudentMenu />;
       case "school":
         return <SchoolMenu />;
+      case "ambas":
+        return <AmbasMenu />;
     }
   };
   return (
