@@ -33,9 +33,7 @@ const FicheFormationPopupPage: React.FunctionComponent<IFicheFormationPopupPageP
 
     return (<div>
         <MainContentPage>
-            {/* Full-screen background with flexbox to center children */}
             <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-start pt-20">
-                {/* Popup width of 4/6 centered to the right */}
                 <div className="w-4/6 ml-auto p-5 border-dark-blue shadow-lg bg-white mr-[90px]">
                     <div className="flex justify-between items-center pb-3">
                         <div className="cursor-pointer" onClick={onClose}>×</div>
@@ -43,9 +41,10 @@ const FicheFormationPopupPage: React.FunctionComponent<IFicheFormationPopupPageP
                     {/* Popup content */}
                     {selectedFormation && (
                         <div>
-                            <h1>{selectedFormation.ecole}</h1>
-                            <h1>{selectedFormation.formation}</h1>
-                            {/* Display other information about the selected formation */}
+                            <h1 className='text-xl my-1.5'><b>{selectedFormation.ecole}</b></h1>
+                            <h1 className='text-lg my-1.5'>{selectedFormation.formation}</h1>
+                            <h1 className='text-base my-2'><b>{selectedFormation.localisation}</b> - {selectedFormation.contrat}</h1>
+                            <p className='text-base my-2'>{selectedFormation.resume}</p>
                             <button onClick={handleChatButtonClick} className="text-white bg-dark-blue hover:bg-light-blue px-4 py-2 text-base font-medium-marianne">
                                 Commencer une conversation
                             </button>
