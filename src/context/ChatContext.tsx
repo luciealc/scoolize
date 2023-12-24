@@ -46,6 +46,7 @@ export const ChatProvider: React.FC<any> = ({ children }) => {
       return () => unsuscribe();
     }
   }, []);
+
   return (
     <ChatContext.Provider value={{ conv, setConv }}>
       {children}

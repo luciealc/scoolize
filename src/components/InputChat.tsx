@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { auth, firestore } from "../auth/firebaseConfig";
 import { IChat } from "./ChatMessages";
+import { useAuth } from "../context/AuthContext";
 
 const MessageInput: React.FC<IChat> = (props) => {
   const [message, setMessage] = useState("");
+  const { user } = useAuth();
 
   const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,8 +53,14 @@ const MessageInput: React.FC<IChat> = (props) => {
       }
     }
   };
+  const getRole = () => {
+    if (user?.role === "school") return "invisible";
+  };
   return (
-    <form onSubmit={sendMessage} className="flex mt-4 w-full font-['Marianne']">
+    <form
+      onSubmit={sendMessage}
+      className={`flex mt-4 w-full font-['Marianne'] ${getRole()}`}
+    >
       <input
         type="text"
         placeholder="Votre message"

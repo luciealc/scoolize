@@ -54,6 +54,16 @@ const SchoolMenu: React.FunctionComponent<ISchoolMenuProps> = (props) => {
           Messagerie
         </Link>
       </li>
+      <li className="pt-[5px] pb-2.5 justify-start items-start gap-2.5 inline-flex">
+        <Link
+          to="/ambas"
+          className={`text-black text-2xl font-medium font-marianne-medium leading-tight ${linkClass(
+            "/ambas"
+          )}`}
+        >
+          Ambassadeurs
+        </Link>
+      </li>
     </ul>
   );
 };
