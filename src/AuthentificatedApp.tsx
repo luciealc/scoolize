@@ -15,7 +15,7 @@ import { Iusers } from "./interface/users";
 const AuthenticatedApp = () => {
   const [role, setRole] = useState<string>("");
   const navigate = useNavigate();
-  const { user, setUser } = useAuth();
+  const { setUser } = useAuth();
 
   // useEffect(() => {
   //   const unsubscribe = auth.onAuthStateChanged((currentUser) => {

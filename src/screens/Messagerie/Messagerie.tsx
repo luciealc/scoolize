@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import MainContentPage from "../../components/MainContent";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  onSnapshot,
+  orderBy,
+  query,
+  where,
+} from "firebase/firestore";
 import { firestore } from "../../auth/firebaseConfig"; // Adjust based on your project structure
 import Conversation from "./Conversation";
 import { IChatMessagesProps } from "../../interface/chatMessages";
@@ -16,6 +24,7 @@ const Messagerie: React.FunctionComponent<IMessagerieProps> = (props) => {
   const { user } = useAuth();
   const [error, setError] = useState<any>();
   const [fm, setFm] = useState<Array<IChatMessagesProps>>([]);
+  const messageRef = collection(firestore, "messages");
 
   useEffect(() => {
     getFm();
@@ -35,6 +44,22 @@ const Messagerie: React.FunctionComponent<IMessagerieProps> = (props) => {
         setFm(
           results.filter((item): item is IChatMessagesProps => item !== null)
         );
+      } else if (user?.role === "school") {
+        const queryMessages = query(
+          messageRef,
+          where("sid", "==", user?.sid),
+          orderBy("createdAt")
+        );
+        const unsuscribe = onSnapshot(queryMessages, (snapshot) => {
+          let messages: any = [];
+          snapshot.forEach((doc) => {
+            messages.push({ ...doc.data(), id: doc.id });
+          });
+          console.log(messages);
+
+          setFm(messages);
+        });
+        return () => unsuscribe();
       }
     } catch (error) {
       setError(error);
@@ -67,16 +92,6 @@ const Messagerie: React.FunctionComponent<IMessagerieProps> = (props) => {
             {fm?.map((element) => {
               return <CardChat message={element} />;
             })}{" "}
-            <button
-              onClick={(e) =>
-                createChat(
-                  "y0fmNZMYOiezM1pbDAK5KFWMzIM2",
-                  "Epitech Digital School"
-                )
-              }
-            >
-              New Conv
-            </button>
           </div>
           <div className="w-2/3 h-full">
             {conv[0] && <Conversation conv={conv} />}
