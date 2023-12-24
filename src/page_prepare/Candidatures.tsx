@@ -1,6 +1,6 @@
 import React from 'react';
 import MainContentPage from '../components/MainContent'
-import PageCandidature from '../../assets/logos/pageCandidature.svg' 
+import PageCandidature from '../assets/images/pageCandidature.svg' 
 import NavbarPage from '../components/NavBar/NavBar';
 
 export interface ICandidaturesPageProps {};
