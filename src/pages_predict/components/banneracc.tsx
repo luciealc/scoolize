@@ -1,12 +1,11 @@
 import React from 'react';
-import  Clock  from "../../../assets/icons/Clock.svg";
 import CheckBox from '../components/checkbox';
 
 const Banneracc = (): JSX.Element => {
   return (
     <div className="flex items-center justify-between p-[25px] relative bg-[#f5f5fe] rounded-[4px_4px_1px_1px] border-b-4 [border-bottom-style:solid] border-[#000091]">
       <div className="inline-flex items-center gap-[15px] relative flex-[0_0_auto]">
-      <img src={Clock} alt="Clock" className="!relative !w-[41px] !h-[41px]" />
+      
         <div className="relative w-fit [font-family:'Marianne-Medium',Helvetica] font-medium text-black text-[24px] tracking-[0] leading-[20px] whitespace-nowrap">
           25 jours restants
         </div>
