@@ -6,7 +6,7 @@ import FormationsPage from "./pages_predict/Formations";
 import OrientationsPage from "./pages_predict/Orientation";
 import VoeuxPage from "./pages_predict/Voeux";
 import MessageriePage from "./pages_predict/Messagerie";
-import ProfilPage from "./pages_predict/Profil";
+import ProfilPage from "./pages_predict/Profil/Profil";
 import LoginPage from "./auth/Login";
 import { auth, firestore } from "./auth/firebaseConfig";
 import RegisterPage from "./auth/Register";
