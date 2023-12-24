@@ -1,5 +1,5 @@
 import React from 'react';
-import MainContentPage from './components/MainContent';
+import MainContentPage from './MainContent';
 
 export interface IVoeuxPageProps {};
 

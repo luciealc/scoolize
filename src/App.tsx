@@ -4,9 +4,9 @@ import Navbar from './pages_predict/components/navbar/Navbar'
 import AccueilPage from "./pages_predict/Accueil"
 import FormationsPage from './pages_predict/Formations';
 import OrientationsPage from './pages_predict/Orientation';
-import VoeuxPage from './pages_predict/Voeux';
+import VoeuxPage from './pages_predict/components/Voeux';
 import MessageriePage from './pages_predict/Messagerie';
-import ProfilPage from './pages_predict/Profil';
+import ProfilPage from './pages_predict/Profil/Profil';
 import LoginPage from './auth/Login';
 import { auth } from './auth/firebaseConfig';
 import RegisterPage from './auth/Register';
@@ -64,7 +64,7 @@ function App() {
         )}
 
         {/* Redirige vers la page de connexion si l'utilisateur n'est pas authentifié */}
-        <Route path="/" element={<AccueilPage />} />
+        <Route path="/" element={<ProfilPage />} />
       </Routes>
  
       {/* <Routes>

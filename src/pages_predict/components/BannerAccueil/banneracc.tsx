@@ -11,8 +11,9 @@ const Banneracc = (): JSX.Element => {
           25 jours restants
         </div>
       </div>
-      <div className="relative w-[127px] h-[60px] [font-family:'Marianne-Medium',Helvetica] font-medium text-black text-[64px] tracking-[0] leading-[20px]">
-        KPI
+      <div className="flex flex-col items-center justify-center flex-grow">
+        <span className="text-[64px] font-medium leading-[77px]">2</span>
+        <span className="text-[24px] font-medium leading-[29px]">Voeux effectués</span>
       </div>
       <div className="inline-flex flex-col items-end gap-[12px] relative flex-[0_0_auto]">
         <div className="inline-flex items-center justify-center gap-[10px] p-[10px] relative flex-[0_0_auto]">

@@ -14,16 +14,24 @@ const AccueilPage: React.FunctionComponent<IAccueilPageProps> = (props) => {
     return (<div>
         <MainContentPage>
             <NavbarPage />
-            <Banneracc />
-            <SearchBarPage1 />
-            <SuggestionsCard/>
-            <div className="flex justify-end space-x-8">
-                <div className="flex flex-col items-end space-y-[34px]">
-                    <CandidatureCard />
-                    <FavorisCard />
+            <div className="flex flex-col min-h-screen ">
+                <div className="banner">
+                    <Banneracc />
+                </div>
+
+                <div className="flex-grow flex mt-12">
+                    <div className="flex-1 flex flex-col items-center mt-12" >
+                        <SearchBarPage1 />
+                        <div className='mt-12'>
+                            <SuggestionsCard />
+                        </div> 
+                    </div>
+                    <div className="flex-1 flex flex-col items-end space-y-8">
+                        <CandidatureCard />
+                        <FavorisCard />
+                    </div>
                 </div>
             </div>
-            
         </MainContentPage>
     </div>)
 }
